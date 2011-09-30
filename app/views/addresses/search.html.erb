@@ -1,0 +1,38 @@
+
+<%if @addresses and @addresses.length>0%>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Phone</th>
+	    <th>Email</th>
+	    <th>Custom type</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	
+	<% @addresses.each do |address| %>
+	  <tr>
+<%@address = address%>
+
+	    <td><%= in_place_editor_field :address,:name%></td>
+	
+	    <td><%= address.phone %></td>
+	    <td><%= address.email %></td>
+	
+	
+
+	    <td><%= getType(address.custom_type)%></td>
+
+	    <td><%= link_to 'Show', address %></td>
+	    <td><%= link_to 'Edit', edit_address_path(address) %></td>
+	    <td><%= link_to 'Destroy', address, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+<%else%>
+<br>
+No Results found
+
+<%end%>	
+

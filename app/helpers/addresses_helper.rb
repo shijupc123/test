@@ -1,0 +1,13 @@
+module AddressesHelper
+
+def getType(custom_type)
+
+if custom_type
+return "Good Customer"
+
+else
+return "Bad Customer"
+end
+end
+
+end

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @address.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @address.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @address.email %>
+</p>
+
+<p>
+  <b>Custom type:</b>
+   <%= getType(@address.custom_type)%>
+</p>
+
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

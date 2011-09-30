@@ -1,0 +1,51 @@
+
+s<h1>Searching addresses</h1>
+<table>
+<tr>
+<td>Search ::</td>
+<td>
+<%=text_field 'address' 'name',:id=>'search_txt' %>
+ <input type=button id="bt_search" value="Search" onclick="getSearch();">
+</td>
+</tr>
+</table>
+
+
+<h3>Listing addresses</h3>
+
+
+<div id="results">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Phone</th>
+	    <th>Email</th>
+	    <th>Custom type</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	
+	<% @addresses.each do |address| %>
+	  <tr>
+<%@address = address%>
+
+	    <td><%= in_place_editor_field :address,:name%></td>
+	
+	    <td><%= address.phone %></td>
+	    <td><%= address.email %></td>
+	
+	
+
+	    <td><%= getType(address.custom_type)%></td>
+
+	    <td><%= link_to 'Show', address %></td>
+	    <td><%= link_to 'Edit', edit_address_path(address) %></td>
+	    <td><%= link_to 'Destroy', address, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+<br />
+
+<%= link_to 'New Address', new_address_path %>
